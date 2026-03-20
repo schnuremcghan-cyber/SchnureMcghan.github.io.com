@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宁波电神汽车产业集团有限公司 - 专业汽车配件生产</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 150, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(30, 144, 255, 0.1) 0%, transparent 50%);
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px 60px;
+            border: 2px solid rgba(0, 191, 255, 0.3);
+            box-shadow: 
+                0 20px 60px rgba(0, 191, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00bfff 0%, #0096ff 50%, #1e90ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.2s; }
+        .stat-item:nth-child(2) { animation-delay: 0.4s; }
+        .stat-item:nth-child(3) { animation-delay: 0.6s; }
+        .stat-item:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00bfff 0%, #0096ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0, 191, 255, 0.3);
+            border-color: rgba(0, 191, 255, 0.5);
+        }
+
+        .product-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #00bfff 0%, #0096ff 100%);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.3);
+        }
+
+        .product-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #00bfff;
+        }
+
+        .product-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .showcase {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 80px;
+            border: 1px solid rgba(0, 191, 255, 0.1);
+        }
+
+        .showcase h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #00bfff 0%, #0096ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            color: #00bfff;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .advantage-card {
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, rgba(0, 150, 255, 0.05) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border-left: 4px solid #00bfff;
+            transition: all 0.3s ease;
+        }
+
+        .advantage-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 40px rgba(0, 191, 255, 0.2);
+        }
+
+        .advantage-card h4 {
+            color: #00bfff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .advantage-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        .contact {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.2) 0%, rgba(0, 150, 255, 0.1) 100%);
+            border-radius: 30px;
+            padding: 50px 60px;
+            border: 2px solid rgba(0, 191, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 191, 255, 0.2);
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00bfff 0%, #0096ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-button {
+            background: linear-gradient(135deg, #00bfff 0%, #0096ff 100%);
+            color: #1a1a2e;
+            border: none;
+            padding: 20px 60px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.4);
+        }
+
+        .contact-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 191, 255, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 60px;
+        }
+
+        .floating-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(0, 191, 255, 0.2), transparent);
+            animation: moveLine 8s linear infinite;
+        }
+
+        @keyframes moveLine {
+            0% {
+                transform: translateY(-50%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="floating-lines" id="lines"></div>
+        
+        <div class="container">
+            <div class="header">
+                <div class="logo">
+                    <h1>宁波电神汽车产业集团有限公司</h1>
+                </div>
+                <p class="tagline">专业汽车配件生产 · 品质铸就未来</p>
+                <p class="subtitle">十五年专注汽车配件研发制造，服务全球汽车产业</p>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">年行业经验</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">产品型号</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">合作伙伴</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">质量保证</div>
+                </div>
+            </div>
+            
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-icon">🔧</div>
+                    <h3>发动机配件</h3>
+                    <p>专业生产发动机缸体、缸盖、曲轴、连杆等核心部件，采用先进工艺，确保产品精度和耐用性。</p>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-icon">🚗</div>
+                    <h3>底盘系统</h3>
+                    <p>提供刹车系统、悬挂系统、转向系统等底盘配件，保障车辆安全性能和驾驶体验。</p>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-icon">⚡</div>
+                    <h3>电子电气</h3>
+                    <p>研发生产汽车电子控制单元、传感器、线束等电子配件，满足智能化汽车发展需求。</p>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-icon">🔩</div>
+                    <h3>车身配件</h3>
+                    <p>生产车门、引擎盖、后备箱盖等车身冲压件，以及各类连接件和紧固件。</p>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-icon">❄️</div>
+                    <h3>冷却系统</h3>
+                    <p>提供水箱、散热器、水泵等冷却系统配件，确保发动机在最佳温度下运行。</p>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-icon">🛞</div>
+                    <h3>传动系统</h3>
+                    <p>生产变速箱、离合器、传动轴等传动配件，传递动力，提升驾驶性能。</p>
+                </div>
+            </div>
+            
+            <div class="showcase">
+                <h2>产品展示</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=800" alt="发动机生产线">
+                        <div class="gallery-overlay">
+                            <h4>精密制造</h4>
+                            <p>采用先进的生产设备和精密的加工工艺</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800" alt="质量检测">
+                        <div class="gallery-overlay">
+                            <h4>质量控制</h4>
+                            <p>严格的质量检测流程，确保每个产品合格</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800" alt="研发中心">
+                        <div class="gallery-overlay">
+                            <h4>技术创新</h4>
+                            <p>持续投入研发，引领行业技术发展</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800" alt="仓储物流">
+                        <div class="gallery-overlay">
+                            <h4>高效物流</h4>
+                            <p>完善的仓储物流体系，快速响应客户需求</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="advantages">
+                <div class="advantage-card">
+                    <h4>先进技术</h4>
+                    <p>引进国际先进的生产设备和技术，持续提升产品质量和生产效率。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <h4>质量保证</h4>
+                    <p>通过ISO9001、TS16949等质量体系认证，严格把控产品质量关。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <h4>研发创新</h4>
+                    <p>拥有专业的研发团队，持续开发新产品，满足市场需求。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <h4>客户至上</h4>
+                    <p>以客户需求为导向，提供定制化解决方案和优质服务。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <h4>全球布局</h4>
+                    <p>产品销往国内外多个国家和地区，建立完善的销售网络。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <h4>可持续发展</h4>
+                    <p>注重环保生产，推行绿色制造，实现企业可持续发展。</p>
+                </div>
+            </div>
+            
+            <div class="contact">
+                <h2>联系我们</h2>
+                <p>专业的团队，优质的产品，期待与您合作共赢</p>
+                <button class="contact-button">立即咨询</button>
+            </div>
+            
+            <footer>
+                <p>&copy; 2024 宁波电神汽车产业集团有限公司 版权所有</p>
+            </footer>
+        </div>
+    </div>
+    
+    <script>
+        // 创建流动的线条效果
+        const linesContainer = document.getElementById('lines');
+        
+        for (let i = 0; i < 5; i++) {
+            const line = document.createElement('div');
+            line.className = 'line';
+            line.style.left = (15 + i * 20) + '%';
+            line.style.animationDelay = (i * 1.5) + 's';
+            line.style.animationDuration = (8 + Math.random() * 4) + 's';
+            linesContainer.appendChild(line);
+        }
+        
+        // 产品卡片悬停效果
+        document.querySelectorAll('.product-card').forEach((card, index) => {
+            card.style.animation = `fadeInUp 0.8s ease-out ${index * 0.1}s`;
+            card.style.animationFillMode = 'both';
+        });
+    </script>
+</body>
+</html>
